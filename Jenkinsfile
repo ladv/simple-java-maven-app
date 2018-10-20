@@ -8,15 +8,7 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-	    	withMaven(
-			// Maven installation declared in the Jenkins "Global Tool Configuration"
-			maven: 'M3',
-			mavenLocalRepo: '~/.m2/repository') {
-
-		      // Run the maven build
-		      sh "mvn -B -DskipTests clean package"
-
-	    	}
+		sh "mvn -B -DskipTests clean package"
             }
         }
         stage('Test') {
